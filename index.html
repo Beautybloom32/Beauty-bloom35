@@ -3,314 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beauty Bloom</title>
+<title>Beauty Bloom | Sheikh Ajwa Amir</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff8fb;color:#333}
 
-body{
-  font-family:Arial,sans-serif;
-  background:#fff7fb;
-  color:#333;
-}
-
-/* HEADER */
 header{
-  background:linear-gradient(135deg,#f06aa4,#c92f69);
-  color:white;
-  text-align:center;
-  padding:22px 15px;
-  position:sticky;
-  top:0;
-  z-index:1000;
+background:linear-gradient(135deg,#f06aa4,#c92f69);
+color:#fff;text-align:center;padding:24px 14px;
+position:sticky;top:0;z-index:10
 }
 
-header h1{
-  font-size:30px;
+.logo{font-size:34px;font-weight:700}
+.tag{margin-top:5px;font-size:14px}
+.owner{margin-top:8px;font-size:13px}
+
+.cartBtn{
+margin-top:13px;border:0;border-radius:25px;
+padding:10px 20px;background:#fff;color:#c92f69;
+font-weight:700;cursor:pointer
 }
 
-.tagline{
-  margin-top:5px;
-  font-size:14px;
-}
+.hero{text-align:center;padding:28px 15px 12px}
+.hero h2{color:#c92f69;font-size:28px}
+.hero p{color:#777;margin-top:7px}
 
-.owner{
-  margin-top:7px;
-  font-size:13px;
-}
-
-.cart-btn{
-  margin-top:12px;
-  background:white;
-  color:#c92f69;
-  border:none;
-  padding:10px 20px;
-  border-radius:25px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:28px 15px 15px;
-}
-
-.hero h2{
-  color:#c92f69;
-  font-size:27px;
-}
-
-.hero p{
-  color:#777;
-  margin-top:7px;
-}
-
-/* PRODUCTS */
 .products{
-  width:94%;
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  padding:15px 0 40px;
+width:94%;max-width:1100px;margin:auto;
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:18px;padding:18px 0 35px
 }
 
-.product{
-  background:white;
-  border-radius:15px;
-  padding:12px;
-  text-align:center;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+.card{
+background:#fff;border-radius:16px;padding:12px;
+text-align:center;box-shadow:0 3px 13px rgba(0,0,0,.08)
 }
 
-.product img{
-  width:100%;
-  height:155px;
-  object-fit:contain;
-  display:block;
+.card img{
+width:100%;height:165px;object-fit:contain;
+border-radius:10px;display:block
 }
 
-.product h3{
-  font-size:15px;
-  margin:10px 0 6px;
-}
+.card h3{font-size:15px;margin:10px 0 6px}
 
 .price{
-  color:#c92f69;
-  font-size:17px;
-  font-weight:bold;
-  margin-bottom:9px;
+font-weight:700;color:#c92f69;
+font-size:17px;margin-bottom:9px
 }
 
-.old-price{
-  color:#999;
-  text-decoration:line-through;
-  font-size:13px;
-  margin-right:5px;
+.old{
+text-decoration:line-through;color:#999;
+font-size:13px;margin-right:5px
 }
 
-.add-btn{
-  width:100%;
-  border:none;
-  background:#c92f69;
-  color:white;
-  padding:9px;
-  border-radius:20px;
-  cursor:pointer;
-  font-weight:bold;
+.add{
+border:0;width:100%;padding:9px;
+border-radius:20px;background:#c92f69;
+color:#fff;font-weight:700;cursor:pointer
 }
 
-/* CART */
-.cart{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:2000;
+.modal{
+display:none;position:fixed;inset:0;
+background:rgba(0,0,0,.5);z-index:50
 }
 
-.cart-box{
-  background:white;
-  width:94%;
-  max-width:520px;
-  max-height:90vh;
-  overflow-y:auto;
-  margin:4vh auto;
-  padding:20px;
-  border-radius:18px;
-}
-
-.cart-box h2{
-  color:#c92f69;
-  margin-bottom:15px;
+.box{
+background:#fff;width:94%;max-width:520px;
+max-height:90vh;overflow:auto;margin:4vh auto;
+padding:20px;border-radius:18px
 }
 
 .close{
-  float:right;
-  border:none;
-  background:none;
-  font-size:28px;
-  cursor:pointer;
+float:right;border:0;background:none;
+font-size:26px;cursor:pointer
 }
 
-.cart-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 0;
-  border-bottom:1px solid #eee;
+.box h2{color:#c92f69;margin-bottom:15px}
+
+.item{
+display:flex;gap:10px;align-items:center;
+border-bottom:1px solid #eee;padding:10px 0
 }
 
-.cart-item img{
-  width:60px;
-  height:60px;
-  object-fit:contain;
+.item img{
+width:60px;height:60px;object-fit:contain
 }
 
-.item-info{
-  flex:1;
+.info{flex:1}
+.info h4{font-size:14px}
+.info small{color:#c92f69;font-weight:700}
+
+.qty{
+display:flex;align-items:center;
+gap:8px;margin-top:6px
 }
 
-.item-info h4{
-  font-size:14px;
-}
-
-.item-price{
-  color:#c92f69;
-  font-size:13px;
-  font-weight:bold;
-  margin-top:3px;
-}
-
-.quantity{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:6px;
-}
-
-.quantity button{
-  width:26px;
-  height:26px;
-  border:none;
-  border-radius:50%;
-  background:#f6d1df;
-  cursor:pointer;
+.qty button{
+border:0;width:26px;height:26px;
+border-radius:50%;background:#f7d1e0;
+cursor:pointer
 }
 
 .remove{
-  border:none !important;
-  background:none !important;
-  color:#d33;
-  width:auto !important;
-  cursor:pointer;
+border:0;background:none;color:#d33;
+cursor:pointer;font-size:12px
 }
 
 .total{
-  text-align:right;
-  color:#c92f69;
-  font-size:20px;
-  font-weight:bold;
-  padding:15px 0;
+text-align:right;color:#c92f69;
+font-size:20px;font-weight:700;padding:15px 0
 }
 
-/* CHECKOUT */
-.checkout h3{
-  margin-bottom:8px;
+input,textarea{
+width:100%;padding:11px;margin:5px 0;
+border:1px solid #ddd;border-radius:8px;
+font-size:14px
 }
 
-.checkout input,
-.checkout textarea{
-  width:100%;
-  padding:11px;
-  margin:5px 0;
-  border:1px solid #ddd;
-  border-radius:8px;
-  font-size:14px;
+textarea{
+height:80px;
+resize:none
 }
 
-.checkout textarea{
-  height:80px;
-  resize:none;
+.order{
+width:100%;border:0;border-radius:24px;
+padding:13px;background:#25D366;color:#fff;
+font-weight:700;font-size:16px;
+cursor:pointer;margin-top:8px
 }
 
-.order-btn{
-  width:100%;
-  background:#25D366;
-  color:white;
-  border:none;
-  padding:13px;
-  border-radius:25px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:8px;
-}
-
-/* FOOTER */
 footer{
-  background:#c92f69;
-  color:white;
-  text-align:center;
-  padding:20px;
-  font-size:14px;
+text-align:center;background:#c92f69;
+color:#fff;padding:20px;font-size:14px
 }
 
-/* TABLET */
 @media(max-width:800px){
-
-  .products{
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-  }
-
-  .product{
-    padding:9px;
-  }
-
-  .product img{
-    height:130px;
-  }
-
-  .product h3{
-    font-size:13px;
-  }
-
-  .price{
-    font-size:15px;
-  }
-
+.products{
+grid-template-columns:repeat(3,1fr);
+gap:12px
 }
 
-/* PHONE */
+.card img{height:130px}
+.card{padding:8px}
+.card h3{font-size:13px}
+}
+
 @media(max-width:520px){
+.products{
+grid-template-columns:repeat(2,1fr);
+width:94%
+}
 
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    width:94%;
-  }
-
-  .product img{
-    height:125px;
-  }
-
-  .product h3{
-    font-size:13px;
-  }
-
-  .add-btn{
-    font-size:12px;
-    padding:8px 4px;
-  }
-
+.card img{height:125px}
+.logo{font-size:28px}
 }
 </style>
 </head>
@@ -319,9 +165,11 @@ footer{
 
 <header>
 
-<h1>🌸 Beauty Bloom 🌸</h1>
+<div class="logo">
+🌸 Beauty Bloom 🌸
+</div>
 
-<div class="tagline">
+<div class="tag">
 Glow with Confidence
 </div>
 
@@ -329,12 +177,11 @@ Glow with Confidence
 Business Owner: Sheikh Ajwa Amir
 </div>
 
-<button class="cart-btn" onclick="openCart()">
-🛒 Cart (<span id="cartCount">0</span>)
+<button class="cartBtn" onclick="openCart()">
+🛒 Cart (<span id="count">0</span>)
 </button>
 
 </header>
-
 
 <section class="hero">
 
@@ -346,24 +193,15 @@ Choose your favourite products and order directly from Beauty Bloom.
 
 </section>
 
-
 <section class="products" id="products"></section>
 
-
 <footer>
-
-© 2026 Beauty Bloom  
-<br>
-Business Owner: Sheikh Ajwa Amir
-
+© 2026 Beauty Bloom · Business Owner: Sheikh Ajwa Amir
 </footer>
 
+<div class="modal" id="modal">
 
-<!-- CART -->
-
-<div class="cart" id="cart">
-
-<div class="cart-box">
+<div class="box">
 
 <button class="close" onclick="closeCart()">×</button>
 
@@ -372,50 +210,26 @@ Business Owner: Sheikh Ajwa Amir
 <div id="cartItems"></div>
 
 <div class="total">
-Total: Rs. <span id="cartTotal">0</span>
+Total: Rs. <span id="total">0</span>
 </div>
-
-
-<div class="checkout">
 
 <h3>Customer Details</h3>
 
-<input
-type="text"
-id="customerName"
-placeholder="Your Name"
->
+<input id="name" placeholder="Your Name">
 
-<input
-type="tel"
-id="customerPhone"
-placeholder="Phone Number"
->
+<input id="phone" placeholder="Phone Number">
 
-<textarea
-id="customerAddress"
-placeholder="Complete Delivery Address"
-></textarea>
+<textarea id="address"
+placeholder="Complete Delivery Address"></textarea>
 
-<button
-class="order-btn"
-onclick="placeOrder()"
->
+<button class="order" onclick="orderWhatsApp()">
 📲 Place Order on WhatsApp
 </button>
 
 </div>
-
 </div>
 
-</div>
-
-
-<script>
-
-/* PRODUCTS */
-
-const products = [
+<script>const products = [
 
 {
 id:1,
@@ -428,7 +242,7 @@ image:"product1.jpg.jpeg"
 id:2,
 name:"AS-ONE 12-Piece Lip Kit",
 price:1999,
-oldPrice:2400,
+old:2400,
 image:"product2.jpg.jpeg"
 },
 
@@ -436,7 +250,7 @@ image:"product2.jpg.jpeg"
 id:3,
 name:"Eye Makeup Complete Pack",
 price:999,
-oldPrice:1400,
+old:1400,
 image:"product3.jpg.jpeg"
 },
 
@@ -469,4 +283,360 @@ image:"product7.jpg.jpeg"
 },
 
 {
-id:
+id:8,
+name:"Beauty Product 8",
+price:0,
+image:"product8.jpg.jpeg"
+},
+
+{
+id:9,
+name:"Beauty Product 9",
+price:0,
+image:"product9.jpg.jpeg"
+},
+
+{
+id:10,
+name:"Beauty Product 10",
+price:0,
+image:"product10.jpg.jpeg"
+},
+
+{
+id:11,
+name:"Beauty Product 11",
+price:0,
+image:"product11.jpg.jpeg"
+},
+
+{
+id:12,
+name:"Beauty Product 12",
+price:0,
+image:"product12.jpg.jpeg"
+},
+
+{
+id:13,
+name:"Beauty Product 13",
+price:0,
+image:"product13.jpg.jpeg"
+},
+
+{
+id:14,
+name:"Beauty Product 14",
+price:0,
+image:"product14.jpg.jpeg"
+},
+
+{
+id:15,
+name:"Beauty Product 15",
+price:0,
+image:"product15.jpg.jpeg"
+},
+
+{
+id:16,
+name:"Beauty Product 16",
+price:0,
+image:"product16.jpg.jpeg"
+},
+
+{
+id:17,
+name:"Beauty Product 17",
+price:0,
+image:"product17.jpg.jpeg"
+},
+
+{
+id:18,
+name:"Beauty Product 18",
+price:0,
+image:"product18.jpg.jpeg"
+},
+
+{
+id:19,
+name:"Beauty Product 19",
+price:0,
+image:"product19.jpg.jpeg"
+},
+
+{
+id:20,
+name:"Beauty Product 20",
+price:0,
+image:"product20.jpg.jpeg"
+}
+
+];
+
+let cart = {};
+
+function renderProducts(){
+
+let html = "";
+
+products.forEach(function(product){
+
+html += `
+<div class="card">
+
+<img src="${product.image}" alt="${product.name}">
+
+<h3>${product.name}</h3>
+
+<div class="price">
+
+${
+product.old
+?
+`<span class="old">Rs. ${product.old}</span>`
+:
+""
+}
+
+Rs. ${product.price}
+
+</div>
+
+<button class="add" onclick="addToCart(${product.id})">
+Add to Cart
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("products").innerHTML = html;
+
+}
+
+
+function addToCart(id){
+
+if(cart[id]){
+cart[id]++;
+}else{
+cart[id] = 1;
+}
+
+updateCart();
+
+}
+
+
+function increase(id){
+
+cart[id]++;
+
+updateCart();
+
+}
+
+
+function decrease(id){
+
+if(cart[id] > 1){
+cart[id]--;
+}else{
+delete cart[id];
+}
+
+updateCart();
+
+}
+
+
+function removeItem(id){
+
+delete cart[id];
+
+updateCart();
+
+}
+
+
+function updateCart(){
+
+let html = "";
+let total = 0;
+let count = 0;
+
+for(let id in cart){
+
+let product =
+products.find(function(p){
+return p.id == id;
+});
+
+let quantity = cart[id];
+
+let itemTotal =
+product.price * quantity;
+
+total += itemTotal;
+count += quantity;
+
+html += `
+
+<div class="item">
+
+<img src="${product.image}">
+
+<div class="info">
+
+<h4>${product.name}</h4>
+
+<small>
+Rs. ${product.price} × ${quantity}
+</small>
+
+<div class="qty">
+
+<button onclick="decrease(${product.id})">
+−
+</button>
+
+<span>${quantity}</span>
+
+<button onclick="increase(${product.id})">
++
+</button>
+
+<button class="remove"
+onclick="removeItem(${product.id})">
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+if(html === ""){
+html = "<p>Your cart is empty.</p>";
+}
+
+document.getElementById("cartItems").innerHTML = html;
+
+document.getElementById("total").innerText = total;
+
+document.getElementById("count").innerText = count;
+
+}
+
+
+function openCart(){
+
+document.getElementById("modal").style.display = "block";
+
+}
+
+
+function closeCart(){
+
+document.getElementById("modal").style.display = "none";
+
+}function orderWhatsApp(){
+
+if(!Object.keys(cart).length){
+alert("Please add a product to cart first.");
+return;
+}
+
+const name =
+document.getElementById("name").value.trim();
+
+const phone =
+document.getElementById("phone").value.trim();
+
+const address =
+document.getElementById("address").value.trim();
+
+if(!name || !phone || !address){
+
+alert("Please fill in your name, phone and address.");
+
+return;
+
+}
+
+let total = 0;
+
+let msg =
+"🌸 *Beauty Bloom Order* 🌸\n\n";
+
+msg +=
+"👤 Name: " + name + "\n";
+
+msg +=
+"📞 Phone: " + phone + "\n";
+
+msg +=
+"📍 Address: " + address + "\n\n";
+
+msg +=
+"🛍️ *Order Details:*\n";
+
+for(let id in cart){
+
+let product =
+products.find(function(p){
+return p.id == id;
+});
+
+let quantity = cart[id];
+
+let itemTotal =
+product.price * quantity;
+
+total += itemTotal;
+
+msg +=
+"• " +
+product.name +
+" × " +
+quantity +
+" = Rs. " +
+itemTotal +
+"\n";
+
+}
+
+msg +=
+"\n💰 *Total: Rs. " +
+total +
+"*\n\n";
+
+msg +=
+"Business Owner: Sheikh Ajwa Amir";
+
+
+window.open(
+"https://wa.me/923014201493?text=" +
+encodeURIComponent(msg),
+"_blank"
+);
+
+}
+
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
