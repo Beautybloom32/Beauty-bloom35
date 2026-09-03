@@ -210,7 +210,16 @@ Choose your favourite products and order directly from Beauty Bloom.
 <div id="cartItems"></div>
 
 <div class="total">
-Total: Rs. <span id="total">0</span>
+  <div>Subtotal: Rs. <span id="subtotal">0</span></div>
+
+  <div style="font-size:16px;margin-top:8px;color:#555;">
+    Delivery Charges: Rs. <span id="delivery">250</span>
+  </div>
+
+  <div style="margin-top:8px;">
+    Grand Total: Rs. <span id="total">0</span>
+  </div>
+</div>
 </div>
 
 <h3>Customer Details</h3>
@@ -530,7 +539,12 @@ html = "<p>Your cart is empty.</p>";
 
 document.getElementById("cartItems").innerHTML = html;
 
-document.getElementById("total").innerText = total;
+const deliveryCharges = 250;
+const grandTotal = total + deliveryCharges;
+
+document.getElementById("subtotal").innerText = total;
+document.getElementById("delivery").innerText = deliveryCharges;
+document.getElementById("total").innerText = grandTotal;
 
 document.getElementById("count").innerText = count;
 
@@ -573,7 +587,7 @@ return;
 }
 
 let total = 0;
-
+const deliveryCharges = 250;
 let msg =
 "🌸 *Beauty Bloom Order* 🌸\n\n";
 
@@ -615,8 +629,14 @@ itemTotal +
 }
 
 msg +=
-"\n💰 *Total: Rs. " +
-total +
+"\n🧾 Subtotal: Rs. " + total + "\n";
+
+msg +=
+"🚚 Delivery Charges: Rs. " + deliveryCharges + "\n";
+
+msg +=
+"💰 *Grand Total: Rs. " +
+(total + deliveryCharges) +
 "*\n\n";
 
 msg +=
