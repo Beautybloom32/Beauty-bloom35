@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Beauty Bloom</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#fff7fb;
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#f06aa4,#c92f69);
+  color:white;
+  text-align:center;
+  padding:22px 15px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+header h1{
+  font-size:30px;
+}
+
+.tagline{
+  margin-top:5px;
+  font-size:14px;
+}
+
+.owner{
+  margin-top:7px;
+  font-size:13px;
+}
+
+.cart-btn{
+  margin-top:12px;
+  background:white;
+  color:#c92f69;
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:28px 15px 15px;
+}
+
+.hero h2{
+  color:#c92f69;
+  font-size:27px;
+}
+
+.hero p{
+  color:#777;
+  margin-top:7px;
+}
+
+/* PRODUCTS */
+.products{
+  width:94%;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  padding:15px 0 40px;
+}
+
+.product{
+  background:white;
+  border-radius:15px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.product img{
+  width:100%;
+  height:155px;
+  object-fit:contain;
+  display:block;
+}
+
+.product h3{
+  font-size:15px;
+  margin:10px 0 6px;
+}
+
+.price{
+  color:#c92f69;
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:9px;
+}
+
+.old-price{
+  color:#999;
+  text-decoration:line-through;
+  font-size:13px;
+  margin-right:5px;
+}
+
+.add-btn{
+  width:100%;
+  border:none;
+  background:#c92f69;
+  color:white;
+  padding:9px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* CART */
+.cart{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:2000;
+}
+
+.cart-box{
+  background:white;
+  width:94%;
+  max-width:520px;
+  max-height:90vh;
+  overflow-y:auto;
+  margin:4vh auto;
+  padding:20px;
+  border-radius:18px;
+}
+
+.cart-box h2{
+  color:#c92f69;
+  margin-bottom:15px;
+}
+
+.close{
+  float:right;
+  border:none;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+}
+
+.item-info{
+  flex:1;
+}
+
+.item-info h4{
+  font-size:14px;
+}
+
+.item-price{
+  color:#c92f69;
+  font-size:13px;
+  font-weight:bold;
+  margin-top:3px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+
+.quantity button{
+  width:26px;
+  height:26px;
+  border:none;
+  border-radius:50%;
+  background:#f6d1df;
+  cursor:pointer;
+}
+
+.remove{
+  border:none !important;
+  background:none !important;
+  color:#d33;
+  width:auto !important;
+  cursor:pointer;
+}
+
+.total{
+  text-align:right;
+  color:#c92f69;
+  font-size:20px;
+  font-weight:bold;
+  padding:15px 0;
+}
+
+/* CHECKOUT */
+.checkout h3{
+  margin-bottom:8px;
+}
+
+.checkout input,
+.checkout textarea{
+  width:100%;
+  padding:11px;
+  margin:5px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:14px;
+}
+
+.checkout textarea{
+  height:80px;
+  resize:none;
+}
+
+.order-btn{
+  width:100%;
+  background:#25D366;
+  color:white;
+  border:none;
+  padding:13px;
+  border-radius:25px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+/* FOOTER */
+footer{
+  background:#c92f69;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+}
+
+/* TABLET */
+@media(max-width:800px){
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+
+  .product{
+    padding:9px;
+  }
+
+  .product img{
+    height:130px;
+  }
+
+  .product h3{
+    font-size:13px;
+  }
+
+  .price{
+    font-size:15px;
+  }
+
+}
+
+/* PHONE */
+@media(max-width:520px){
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    width:94%;
+  }
+
+  .product img{
+    height:125px;
+  }
+
+  .product h3{
+    font-size:13px;
+  }
+
+  .add-btn{
+    font-size:12px;
+    padding:8px 4px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🌸 Beauty Bloom 🌸</h1>
+
+<div class="tagline">
+Glow with Confidence
+</div>
+
+<div class="owner">
+Business Owner: Sheikh Ajwa Amir
+</div>
+
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
+
+</header>
+
+
+<section class="hero">
+
+<h2>Our Beauty Collection</h2>
+
+<p>
+Choose your favourite products and order directly from Beauty Bloom.
+</p>
+
+</section>
+
+
+<section class="products" id="products"></section>
+
+
+<footer>
+
+© 2026 Beauty Bloom  
+<br>
+Business Owner: Sheikh Ajwa Amir
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<div class="cart-box">
+
+<button class="close" onclick="closeCart()">×</button>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total: Rs. <span id="cartTotal">0</span>
+</div>
+
+
+<div class="checkout">
+
+<h3>Customer Details</h3>
+
+<input
+type="text"
+id="customerName"
+placeholder="Your Name"
+>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Phone Number"
+>
+
+<textarea
+id="customerAddress"
+placeholder="Complete Delivery Address"
+></textarea>
+
+<button
+class="order-btn"
+onclick="placeOrder()"
+>
+📲 Place Order on WhatsApp
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* PRODUCTS */
+
+const products = [
+
+{
+id:1,
+name:"New Lip Gloss",
+price:199,
+image:"product1.jpg.jpeg"
+},
+
+{
+id:2,
+name:"AS-ONE 12-Piece Lip Kit",
+price:1999,
+oldPrice:2400,
+image:"product2.jpg.jpeg"
+},
+
+{
+id:3,
+name:"Eye Makeup Complete Pack",
+price:999,
+oldPrice:1400,
+image:"product3.jpg.jpeg"
+},
+
+{
+id:4,
+name:"Beauty Product 4",
+price:0,
+image:"product4.jpg.jpeg"
+},
+
+{
+id:5,
+name:"Beauty Product 5",
+price:0,
+image:"product5.jpg.jpeg"
+},
+
+{
+id:6,
+name:"Beauty Product 6",
+price:0,
+image:"product6.jpg.jpeg"
+},
+
+{
+id:7,
+name:"Beauty Product 7",
+price:0,
+image:"product7.jpg.jpeg"
+},
+
+{
+id:
