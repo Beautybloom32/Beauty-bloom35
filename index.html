@@ -587,12 +587,7 @@ priceHTML =
 ` Rs. ${product.price}`;
 
 }
-
-
-let buttonHTML = product.soldOut
-?
-`<button class="add" disabled>Sold Out</button>`
-:
+let buttonHTML =
 `<button class="add" onclick="addToCart(${product.id})">
 Add to Cart
 </button>`;
